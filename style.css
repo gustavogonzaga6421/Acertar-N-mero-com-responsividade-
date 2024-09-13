@@ -11,9 +11,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
-    overflow: hidden;
 }
+
 
 body::before {
     background-image: url("img/code.png");
@@ -39,20 +38,19 @@ body::before {
     background-image: url("img/Ruido.png");
     background-size: 100% 100%;
     position: relative;
-    padding: 2rem;
-    flex-direction: row;
 }
+
 
 .container__conteudo {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: 100%;
+    position: absolute;
+    bottom: 0;
 }
 
 .container__informacoes {
     flex: 1;
-    padding: 2rem;
+    padding: 3rem;
 }
 
 .container__botao {
@@ -67,7 +65,7 @@ body::before {
 }
 
 .container__texto {
-    margin: 16px 0;
+    margin: 16px 0 16px 0;
 }
 
 .container__texto-azul {
@@ -81,7 +79,7 @@ body::before {
     background-color: #FFF;
     border: none;
     color: #1875E8;
-    padding: 1.5rem;
+    padding: 2rem;
     font-size: 24px;
     font-weight: 700;
     font-family: 'Inter', sans-serif;
@@ -112,116 +110,168 @@ button:disabled {
     background-color: gray;
 }
 
-/* Para telas grandes (desktop acima de 1440px) */
-@media screen and (min-width: 1440px) {
-    .container {
-        width: 70%;
-        height: 80%;
-    }
+@media(max-width: 1250px) {
 
     h1 {
-        font-size: 60px;
+        font-size: 50px;
     }
 
     .container__botao {
-        font-size: 22px;
+        font-size: 16px;
     }
+
 
     .texto__paragrafo {
-        font-size: 28px;
+        font-size: 24px;
+    }
+
+    .container__imagem-pessoa {
+        display: none;
+    }
+
+    .container__conteudo {
+        display: block;
+        position: inherit;
+    }
+
+    .container__informacoes {
+        padding: 1rem
     }
 }
-
-/* Para notebooks (entre 1024px e 1439px) */
-@media screen and (max-width: 1439px) {
-    .container {
-        width: 85%;
-        height: auto;
-        flex-direction: column;
-    }
-
+@media(max-width: 1250px) {
     h1 {
-        font-size: 48px;
+        font-size: 50px;
     }
 
     .container__botao {
-        font-size: 20px;
+        font-size: 16px;
     }
 
     .texto__paragrafo {
         font-size: 24px;
     }
 
-    .container__informacoes {
-        padding: 1.5rem;
+    .container__imagem-pessoa {
+        display: none;
     }
 
-    .container__input {
-        height: 60px;
-        font-size: 20px;
+    .container__conteudo {
+        display: block;
+        position: inherit;
+    }
+
+    .container__informacoes {
+        padding: 1rem;
     }
 }
 
-/* Para tablets (entre 768px e 1023px) */
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 768px) {
     .container {
-        width: 90%;
+        width: 95%;
         height: auto;
-        flex-direction: column;
-        padding: 1.5rem;
+        flex-direction: column-reverse;
+        align-items: center;
     }
 
-    h1 {
-        font-size: 36px;
+    .container__informacoes {
+        padding: 1rem;
         text-align: center;
     }
 
     .container__botao {
         font-size: 18px;
-        padding: 12px 18px;
+        padding: 12px 20px;
+    }
+
+    .container__input {
+        font-size: 20px;
+        padding: 1rem;
     }
 
     .texto__paragrafo {
         font-size: 20px;
-        text-align: center;
-    }
-
-    .container__input {
-        height: 54px;
-        font-size: 18px;
-    }
-}
-
-/* Para celulares (menos de 768px) */
-@media screen and (max-width: 767px) {
-    .container {
-        width: 100%;
-        height: auto;
-        flex-direction: column;
-        padding: 1rem;
     }
 
     h1 {
-        font-size: 28px;
-        text-align: center;
+        font-size: 40px;
+        padding-bottom: 2rem;
+    }
+
+    .container__conteudo {
+        bottom: auto;
+        position: relative;
+    }
+
+    .container__imagem-pessoa {
+        display: block;
+        max-width: 80%;
+    }
+}
+
+@media(max-width: 480px) {
+    h1 {
+        font-size: 30px;
+        padding-bottom: 1rem;
     }
 
     .container__botao {
-        font-size: 16px;
+        font-size: 14px;
         padding: 10px 16px;
     }
 
-    .texto__paragrafo {
-        font-size: 16px;
-        text-align: center;
+    .container__input {
+        font-size: 18px;
+        padding: 0.8rem;
     }
 
-    .container__input {
-        height: 50px;
-        font-size: 16px;
+    .texto__paragrafo {
+        font-size: 18px;
+    }
+
+    .container {
+        padding: 0.5rem;
+    }
+
+    .container__imagem-pessoa {
+        max-width: 100%;
+    }
+}
+
+@media(min-width: 769px) and (max-width: 1249px) {
+    .container {
+        width: 90%;
+        height: auto;
+        flex-direction: row;
+        padding: 2rem;
     }
 
     .container__informacoes {
+        padding: 2rem;
+        text-align: left;
+    }
+
+    .container__botao {
+        font-size: 18px;
+        padding: 14px 20px;
+    }
+
+    .container__input {
+        font-size: 20px;
         padding: 1rem;
+    }
+
+    .texto__paragrafo {
+        font-size: 22px;
+    }
+
+    h1 {
+        font-size: 50px;
+        padding-bottom: 2rem;
+    }
+
+    .container__imagem-pessoa {
+        display: block;
+        max-width: 90%;
+        margin: 0 auto;
     }
 }
